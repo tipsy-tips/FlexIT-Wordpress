@@ -1,0 +1,20 @@
+@use "../abstract/" as *;
+@use "../base/" as *;
+
+.tns-controls {
+  @include flex(space-around, center);
+  margin: 3rem 0;
+  gap: 20rem;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  transform: translateY(17rem);
+  z-index: 9;
+  button {
+    background-color: rgba(202, 202, 202, 0.3);
+    border: none;
+    font-size: 20px;
+    color: $clr-light;
+    padding: 1rem 1.5rem;
+  }
+}

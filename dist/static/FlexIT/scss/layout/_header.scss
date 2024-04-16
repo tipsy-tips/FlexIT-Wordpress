@@ -1,0 +1,413 @@
+@use "../abstract/" as *;
+@use "../base/" as *;
+
+.header {
+  background-color: $clr-primary;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 1030;
+  border-bottom: 1px solid transparent;
+
+  @include for-size(desktop) {
+    background-color: transparent;
+    &.sticky {
+      background-color: $clr-primary;
+    }
+
+    &.sticky .header__wrapper nav .nav-links .dropdown-parent label {
+      color: #fff;
+      &::before {
+        background-color: #fff;
+      }
+    }
+  }
+
+  &__wrapper {
+    padding: 2rem 0rem;
+    display: flex;
+    justify-content: space-between;
+
+    @include for-size(desktop) {
+      padding: unset;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      .dark {
+        display: none;
+      }
+    }
+
+    nav {
+      position: absolute;
+      top: 75px;
+      left: -100%;
+      z-index: 10;
+      height: 100vh;
+      width: 0%;
+      background-color: $clr-primary;
+      transition: all;
+      transition-duration: 0.5s;
+      &.open {
+        left: 0;
+        width: 75%;
+      }
+
+      @include for-size(desktop) {
+        position: unset;
+        top: unset;
+        left: unset;
+        z-index: unset;
+        height: unset;
+        width: unset;
+        background-color: transparent;
+      }
+
+      .nav-links {
+        color: #fff;
+        padding-top: 5rem;
+        margin-left: 1rem;
+
+        @include for-size(desktop) {
+          padding-top: unset;
+          display: flex;
+          gap: 2.5rem;
+        }
+
+        // OPEN SUBMENU - MOBILE
+        input:checked ~ label .submenu {
+          max-height: 100px;
+          transition: max-height, 0.2s ease-in;
+        }
+
+        // OPEN SUBMENU - Desktop
+        @include for-size(desktop) {
+          label:hover .submenu {
+            top: 90px;
+            max-height: 500px;
+            opacity: 1;
+            transition: all 0.2s ease-in;
+          }
+        }
+
+        label {
+          padding: 2.5rem 2.5rem 2.5rem 0rem;
+          display: block;
+          position: relative;
+          cursor: pointer;
+          @include for-size(desktop) {
+            height: 100px;
+            padding: unset;
+            display: flex;
+            gap: 5px;
+            align-items: center;
+            ul {
+              li {
+                a {
+                  &::before {
+                    width: 6px;
+                    display: inline-block;
+                    aspect-ratio: 1/1;
+                    background-color: #fff;
+                    scale: 0;
+                    border-radius: 50%;
+                    transition: all 0.2s ease;
+                  }
+                }
+                &:hover {
+                  a::before {
+                    background-color: #fff;
+                    scale: 1;
+                  }
+                }
+              }
+            }
+          }
+
+          .submenu {
+            @include for-size(desktop) {
+              position: absolute;
+              top: 200px;
+              background-color: $clr-primary;
+              opacity: 0;
+              transition: all 0.5s ease-out;
+              li {
+                padding: 1rem;
+                :hover ~ a {
+                  &::before {
+                    scale: 1;
+                  }
+                }
+
+                a {
+                  margin-left: 1rem;
+                  position: relative;
+                  &::before {
+                    content: "";
+                    position: absolute;
+                    width: 6px;
+                    aspect-ratio: 1/1;
+                    top: 8px;
+                    left: -10px;
+                    background-color: #fff;
+                    scale: 0;
+                    border-radius: 50%;
+                    transition: all 0.2s ease;
+                  }
+                }
+              }
+            }
+            width: 250px;
+            max-height: 0;
+            transition: max-height 0.5s ease-out;
+            overflow: hidden;
+          }
+
+          i {
+            font-size: 1.4rem;
+          }
+
+          &::before {
+            @include for-size(desktop) {
+              top: 47px;
+            }
+            content: "";
+            position: absolute;
+            width: 6px;
+            left: -12px;
+            top: 35px;
+            aspect-ratio: 1/1;
+            background-color: #fff;
+            scale: 0;
+            border-radius: 50%;
+            transition: all 0.2s ease;
+          }
+          &.active {
+            color: $clr-primary;
+            &::before {
+              background-color: $clr-primary;
+              scale: 1;
+            }
+          }
+
+          &:hover {
+            color: $clr-primary;
+            &::before {
+              background-color: $clr-primary;
+              scale: 1;
+            }
+          }
+        }
+
+        .dropdown-parent {
+          position: relative;
+          input {
+            display: none;
+          }
+          li {
+            padding-left: 1rem;
+            cursor: pointer;
+          }
+          a {
+            color: #fff;
+          }
+          .nav-links-dropdown {
+            position: relative;
+            left: 0px;
+            display: none;
+            padding: 1.25rem;
+            padding: 0px;
+          }
+        }
+      }
+    }
+  }
+
+  .header-search-box {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 0;
+    background-color: rgba(#062241, 0.95);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.5s ease-in-out 0s;
+    z-index: 1200;
+
+    &.show {
+      height: 100%;
+      visibility: visible;
+      opacity: 1;
+
+      .search-form {
+        visibility: visible;
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .close-search {
+      position: absolute;
+      top: 30%;
+      right: 10%;
+      width: 3.5rem;
+      height: 3.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+
+      &:before,
+      &::after {
+        content: "";
+        height: 2px;
+        width: 40px;
+        background-color: #fff;
+        display: block;
+        transform-origin: center;
+      }
+
+      &:before {
+        transform: rotate(45deg) translateX(2px);
+      }
+
+      &:after {
+        transform: rotate(-45deg) translateX(1px);
+      }
+    }
+
+    .search-form {
+      position: relative;
+      visibility: hidden;
+      opacity: 0;
+      transform: translateY(5rem);
+      transition-delay: 0.25s;
+      width: 80%;
+
+      .search-lbl {
+        visibility: hidden;
+        opacity: 0;
+        width: 0;
+        position: absolute;
+      }
+
+      .search-input {
+        border: none;
+        border-bottom: 2px solid $clr-primary;
+        font-size: 2rem;
+        outline: none;
+        color: #fff;
+        background-color: transparent;
+        width: 100%;
+        padding-bottom: 5px;
+      }
+
+      .search-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        top: 30%;
+        right: 5%;
+        transform: translateY(-50%);
+        outline: none;
+        border: none;
+        background: transparent;
+        color: $clr-primary;
+        font-size: 2.5rem;
+      }
+    }
+  }
+
+  .nav__controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+    .burger__menu {
+      @include for-size(desktop) {
+        display: none;
+      }
+      cursor: pointer;
+      position: relative;
+      width: 30px;
+      height: 20px;
+      span {
+        display: block;
+        position: absolute;
+        height: 2px;
+        width: 100%;
+        background-color: #fff;
+        opacity: 100;
+        left: 0;
+        top: 0;
+        &:nth-child(1) {
+          top: 0px;
+          opacity: 1;
+          transition-property: all;
+          transition-duration: 600ms;
+        }
+        &:nth-child(2) {
+          top: 8px;
+          opacity: 1;
+          transition-property: all;
+          transition-duration: 600ms;
+        }
+        &:nth-child(3) {
+          top: 16px;
+          opacity: 1;
+          transition-property: all;
+          transition-duration: 600ms;
+        }
+      }
+      &.open {
+        span {
+          &:nth-child(1) {
+            top: 0px;
+            transform: rotate(225deg) translateY(-9px);
+            transition: all;
+            transition-duration: 600ms;
+          }
+          &:nth-child(2) {
+            top: 0px;
+            opacity: 0;
+            transition: all;
+            transition-duration: 600ms;
+          }
+          &:nth-child(3) {
+            top: 13px;
+            transform: rotate(-45deg) translateY(-9px);
+            transition: all;
+            transition-duration: 600ms;
+          }
+        }
+      }
+    }
+    .search__btn {
+      cursor: pointer;
+      i {
+        color: #fff;
+        font-size: 2.5rem;
+      }
+    }
+    .mode__btn {
+      cursor: pointer;
+      i {
+        height: 40px;
+        width: 40px;
+        color: $clr-dark;
+        background-color: $clr-light;
+        padding: 10px;
+        border-radius: 5px;
+        font-size: 2rem;
+      }
+    }
+  }
+}

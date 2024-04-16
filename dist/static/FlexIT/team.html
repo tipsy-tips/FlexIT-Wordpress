@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flex IT</title>
+    <link rel="stylesheet" href="./dist/css/main.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/tiny-slider.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Counter-Up/1.0.0/jquery.counterup.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/tiny-slider.css"
+    />
+  </head>
+  <body>
+    <!-- HEADER -->
+    <header id="header" class="header">
+      <div class="header-search-box">
+        <div class="close-search"></div>
+        <form
+          class="nav-search search-form"
+          role="search"
+          method="get"
+          action="#"
+        >
+          <div class="search-wrapper">
+            <label class="search-lbl">Search for:</label>
+            <input
+              class="search-input"
+              type="search"
+              placeholder="Search..."
+              name="searchInput"
+              autofocus="autofocus"
+            />
+            <button class="search-btn" type="submit">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+          </div>
+        </form>
+      </div>
+      <div class="container">
+        <div class="header__wrapper">
+          <div class="logo">
+            <a href="#"
+              ><img id="logo" class="light-logo" src="./images/logo-light.png"
+            /></a>
+          </div>
+          <nav class="">
+            <ul class="nav-links">
+              <li class="dropdown-parent">
+                <input id="drop1" type="checkbox" name="menu" />
+                <label class="active" for="drop1"
+                  >Home <i class="fa-solid fa-plus"></i>
+                  <ul class="submenu">
+                    <li><a href="#">Home 1</a></li>
+                    <li><a href="#">Home 2</a></li>
+                    <li><a href="#">Home 3 [Slider Style 1]</a></li>
+                    <li><a href="#">Home 4 [Slider Style 2]</a></li>
+                    <li><a href="#">Home [RTL Language]</a></li>
+                  </ul>
+                </label>
+              </li>
+              <li class="dropdown-parent">
+                <input id="drop0" type="checkbox" name="menu" />
+                <label for="drop0">About Us</label>
+                <ul class="submenu"></ul>
+              </li>
+
+              <li class="dropdown-parent">
+                <input id="drop3" type="checkbox" name="menu" />
+                <label for="drop3"
+                  >Services <i class="fa-solid fa-plus"></i>
+                  <ul class="submenu">
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Single</a></li>
+                  </ul>
+                </label>
+              </li>
+              <li class="dropdown-parent">
+                <input id="drop4" type="checkbox" name="menu" />
+                <label for="drop4"
+                  >Portfolio <i class="fa-solid fa-plus"></i>
+                  <ul class="submenu">
+                    <li><a href="#">Portfolio Grid</a></li>
+                    <li><a href="#">Portfolio Slider</a></li>
+                    <li><a href="#">Portfolio Single</a></li>
+                  </ul>
+                </label>
+              </li>
+              <li class="dropdown-parent">
+                <input id="drop5" type="checkbox" name="menu" />
+                <label for="drop5"
+                  >Blog <i class="fa-solid fa-plus"></i>
+                  <ul class="submenu">
+                    <li><a href="#">Blog Home 1 Column</a></li>
+                    <li><a href="#">Blog Home 2 Column</a></li>
+                    <li><a href="#">Blog Home 3 Column</a></li>
+                  </ul>
+                </label>
+              </li>
+              <li class="dropdown-parent">
+                <input id="drop6" type="checkbox" name="menu" />
+                <label for="drop6"
+                  >Pages <i class="fa-solid fa-plus"></i>
+                  <ul class="submenu">
+                    <li><a href="#">Pricing Plans</a></li>
+                    <li><a href="#">Our Team</a></li>
+                    <li><a href="#">Team Member</a></li>
+                    <li><a href="team.html">FAQ</a></li>
+                    <li><a href="#">404 Page</a></li>
+                  </ul>
+                </label>
+              </li>
+              <li>
+                <label>Contact Us</label>
+              </li>
+            </ul>
+          </nav>
+
+          <div class="nav__controls">
+            <div class="burger__menu">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+
+            <div class="search__btn">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
+
+            <div class="mode__btn">
+              <i class="theme far fa-sun" id="toggleMode"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <!-- TEAM MEMBER BANNER -->
+    <section class="teambanner">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="teambanner__wrapper">
+                <h1>Team Member</h1>            
+                <h6><i class="fa-solid fa-house-chimney"></i> Home / <span>Team Member</span></h6>
+            </div>
+        </div>
+    </section>
+    <!-- MEMBER INFO -->
+    <section class="team">
+        <div class="container">
+            <div class="team__wrapper">
+                    <div class="team__info">
+                        <div class="biography">
+                            <h3>Biography Overview</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque hic praesentium, amet iste commodi et placeat, impedit aut veniam maxime laudantium tempore ipsum quod mollitia alias fugiat quis pariatur quidem magnam eaque eligendi?</p>
+                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Libero iusto perspiciatis a modi nisi magnam maiores dolores aspernatur eveniet possimus, natus sed impedit quam eligendi velit sunt recusandae dolorum corrupti!</p>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero ipsa et voluptatibus possimus, recusandae tempore consequatur necessitatibus vitae quia suscipit quidem ex. Harum reprehenderit recusandae cumque magnam atque sunt repellat saepe eius nihil expedita. Repudiandae quidem dolore rerum soluta id?</p>
+                        </div>
+                       
+                        <div class="certificates">
+                            <h3>My Certificates</h3>
+                            <div class="certificates__img">
+                                <img src="./images/certificate-1.jpg" alt="">
+                                <img src="./images/certificate-2.jpg" alt="">
+                            </div>                     
+                        </div>
+
+                        <div class="skills">
+                            <h3>My Skills</h3>
+                            <div class="bar mb-5">
+                                <ul class="skills__text">
+                                    <li>Web Development</li>
+                                    <li>85%</li>
+                                </ul>
+                                <div class="skillbar w-85"></div>
+                            </div>
+
+                            <div class="bar mb-5">
+                                <ul class="skills__text">
+                                    <li>Ecommerce</li>
+                                    <li>70%</li>
+                                </ul>
+                                <div class="skillbar w-70"></div>
+                            </div>
+
+                            <div class="bar mb-5">
+                                <ul class="skills__text">
+                                    <li>Mobile Apps</li>
+                                    <li>90%</li>
+                                </ul>
+                                <div class="skillbar w-90"></div>
+                            </div>
+
+                            <div class="bar mb-5">
+                                <ul class="skills__text">
+                                    <li>Data Analysis</li>
+                                    <li>100%</li>
+                                </ul>
+                                <div class="skillbar w-100"></div>
+                            </div>
+
+                            <div class="bar mb-5">
+                                <ul class="skills__text">
+                                    <li>Cloud Computing</li>
+                                    <li>75%</li>
+                                </ul>
+                                <div class="skillbar w-75"></div>
+                            </div>
+                        </div>
+
+                        <div class="work">
+                            <h3>Work & Speciality Fields</h3>
+                            <div class="work__top">
+                            <li class="work__items">
+                                <i class="fa-regular fa-circle-check"></i>
+                                <span>Amet Consectetur Adipisicin Geius Nihil</span>
+                            </li>
+                            <li class="work__items">
+                                <i class="fa-regular fa-circle-check"></i>
+                                <span>Lorem Ipsum Dolor Sit Amet</span>
+                            </li>
+                            <li class="work__items">
+                                <i class="fa-regular fa-circle-check"></i>
+                                <span>Eius Nihil Expedita. Repudiandae Quidem</span>
+                            </li>
+                            <li class="work__items">
+                                <i class="fa-regular fa-circle-check"></i>
+                                <span>Lorem, Ipsum Dolor.Repudiandae Quidem Expedita.</span>
+                            </li>
+                            <li class="work__items">
+                                <i class="fa-regular fa-circle-check"></i>
+                                <span>Lorem, Ipsum Dolor.</span>
+                            </li>
+                            <li class="work__items">
+                                <i class="fa-regular fa-circle-check"></i>
+                                <span>Lorem Ipsum Dolor Sit Amet.Quidem</span>
+                            </li>
+                            </div>
+                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Libero iusto perspiciatis a modi nisi magnam maiores dolores aspernatur eveniet possimus, natus sed impedit quam eligendi velit sunt recusandae dolorum corrupti!</p>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero ipsa et voluptatibus possimus, recusandae tempore consequatur necessitatibus vitae quia suscipit quidem ex. Harum reprehenderit recusandae cumque magnam atque sunt repellat saepe eius nihil expedita. Repudiandae quidem dolore rerum soluta id?</p>
+                        </div>
+                    </div>     
+                    <div class="box">
+                    <div class="team__profile">
+                        <div class="teamimg">
+                            <img src="./images/teammember.jpg" alt="">
+                        </div>
+                        <div class="details">
+                            <h5>Maya Bork</h5>
+                            <p>Tech Team Dealer</p>
+                        </div>
+                        <div class="team__socials">                    
+                        <div class="icons"><i class="fa-brands fa-facebook"></i></i></div>
+                        <div class="icons"><i class="fa-brands fa-youtube"></i></div>
+                        <div class="icons"><i class="fa-brands fa-instagram"></i></div>
+                        <div class="icons"><i class="fa-brands fa-twitter"></i></div>
+                    </div>    
+                    <div class="team__btn">
+                        <button>Download Resume</button>
+                      </div>
+                    </div>
+                </div>
+            </div>
+   
+        </div>
+    </section>
+
+    
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="overlay"></div>
+        <div class="container">
+          <div class="footer__wrapper">
+            <div class="logo-p">
+              <img src="./images/logo-colored.png" alt="" />
+              <p>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eius aut
+                dolores autem quos mollitia! Amet tenetur consectetur iure
+                sapiente nisi debitis cum officia rerum, ullam impedit laboriosam
+                aspernatur cumque maiores.
+              </p>
+              <div class="form__block">
+                <form class="one-field-form" method="post" action="#0">
+                  <div class="field-group">
+                    <label class="email-label" for="email-input">
+                      Subscribe to our news letter</label
+                    >
+                    <input
+                      class="email-input"
+                      type="email"
+                      value=""
+                      name="EMAIL"
+                      id="email-input"
+                      placeholder="Email Address"
+                      autocomplete="off"
+                    />
+                    <div class="cta-area">
+                      <input
+                        class="btn-solid subscribe-btn"
+                        type="submit"
+                        value="Subscribe"
+                        name="subscribe"
+                      />
+                    </div>
+                  </div>
+                  <span class="email-notice"
+                    >*we will not share your personal info</span
+                  >
+                </form>
+              </div>
+            </div>
+  
+            <div class="links__block__wrapper">
+              <div class="links__block">
+                <h2 class="links-title">useful links</h2>
+                <div class="links-wrapper">
+                  <ul class="links-menu">
+                    <li class="links-menu-item">
+                      <i class="fa fa-arrow-right"></i
+                      ><a class="links-menu-link" href="#0">Google</a>
+                    </li>
+                    <li class="links-menu-item">
+                      <i class="fa fa-arrow-right"></i
+                      ><a class="links-menu-link" href="#0">Dribbble</a>
+                    </li>
+                    <li class="links-menu-item">
+                      <i class="fa fa-arrow-right"></i
+                      ><a class="links-menu-link" href="#0">linkedIn</a>
+                    </li>
+                    <li class="links-menu-item">
+                      <i class="fa fa-arrow-right"></i
+                      ><a class="links-menu-link" href="#0">wikipedia</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+  
+              <div class="links__block">
+                <h2 class="links-title">Resources</h2>
+                <div class="links-wrapper">
+                  <ul class="links-menu">
+                    <li class="links-menu-item">
+                      <i class="fa fa-arrow-right"></i
+                      ><a class="links-menu-link" href="#0">Support</a>
+                    </li>
+                    <li class="links-menu-item">
+                      <i class="fa fa-arrow-right"></i
+                      ><a class="links-menu-link" href="#0">Dashboard</a>
+                    </li>
+                    <li class="links-menu-item">
+                      <i class="fa fa-arrow-right"></i
+                      ><a class="links-menu-link" href="#0">Drivers</a>
+                    </li>
+                    <li class="links-menu-item">
+                      <i class="fa fa-arrow-right"></i
+                      ><a class="links-menu-link" href="#0">Projects</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+  
+            <div class="contact__block">
+              <h2 class="contact-title">contact information</h2>
+              <div class="contact-wrapper">
+                <div class="contact-info-card">
+                  <i class="fa-regular fa-envelope"> </i
+                  ><a href="">example@support.com</a>
+                </div>
+                <div class="contact-info-card">
+                  <i class="fa-regular fa-map"></i>
+                  <span>5 Xyz st., Abc, alexandria, egypt.</span>
+                </div>
+                <div class="contact-info-card">
+                  <i class="fa fa-mobile-screen"></i>
+                  <a>+20123456789</a>
+                </div>
+                <div class="social-icons">
+                  <div class="sc-wrapper">
+                    <ul class="sc-list">
+                      <li class="sc-item">
+                        <a class="sc-link" href="#0">
+                          <i class="fab fa-facebook-f sc-icon"></i>
+                        </a>
+                      </li>
+                      <li class="sc-item">
+                        <a class="sc-link" href="#0">
+                          <i class="fab fa-youtube sc-icon"></i>
+                        </a>
+                      </li>
+                      <li class="sc-item">
+                        <a class="sc-link" href="#0">
+                          <i class="fab fa-instagram sc-icon"></i>
+                        </a>
+                      </li>
+                      <li class="sc-item">
+                        <a class="sc-link" href="#0">
+                          <i class="fab fa-twitter sc-icon"> </i>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="copyrights">
+          <div class="container">
+            <div class="copyrights__wrapper">
+              <div class="created">
+                <p class="creadits">
+                  © 2023 Created by:
+  
+                  <a class="link" href="#0">amin-themes</a>
+                </p>
+              </div>
+              <div class="terms">
+                <div class="terms-links">
+                  <a href="#0">Terms of Use </a> |
+                  <a
+                    href="#0"
+                    data-bs-toggle="modal"
+                    data-bs-target="#privacyPolicyModal"
+                    >Privacy Policy.</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+      <!-- FOOTER END -->
+  
+      <div id="topbtn" class="topbtn">
+        <a href="#top">
+          <img src="./images/arrow-up.svg" alt="" />
+        </a>
+      </div>
+  
+      <script src="./scss/vendor/vanilla-tilt-min.js"></script>
+  
+      <script src="./scss/vendor/particles.min.js"></script>
+      <script src="./scss/vendor/app.js"></script>
+  
+      <!-- SCRIPT START -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.2/min/tiny-slider.js"></script>
+      <script>
+        var slider = tns({
+          container: ".test__contentlist",
+          items: 1,
+          controls: true,
+          nav: false,
+          autoplayButtonOutput: false,
+          slideBy: "page",
+          autoplay: false,
+          mouseDrag: true,
+          controlsText: [
+            '<i class="fa-solid fa-chevron-left"></i>',
+            '<i class="fa-solid fa-chevron-right"></i>',
+          ],
+        });
+      </script>
+      <!-- SCRIPT END -->
+  
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/min/tiny-slider.js"></script>
+      <script>
+        var slider = tns({
+          container: ".clients__slider",
+          items: 3,
+          autoplay: true,
+          autoplayButtonOutput: false,
+          controls: false,
+          mouseDrag: true,
+          nav: false,
+          slideBy: "page",
+          swipeAngle: false,
+          speed: 400,
+          gutter: 15,
+          responsive: {
+            420: {
+              items: 6,
+              gutter: 20,
+            },
+          },
+        });
+      </script>
+  
+      <script>
+        $(document).ready(function () {
+          $(".counter").counterUp({
+            delay: 10,
+            time: 1200,
+          });
+        });
+      </script>
+  
+      <script>
+        const searchBTN = document.querySelector(".search__btn");
+        const searchContainer = document.querySelector(".header-search-box");
+        const close = document.querySelector(".close-search");
+        searchBTN.addEventListener("click", () => {
+          searchBTN.classList.toggle("show");
+          searchContainer.classList.toggle("show");
+        });
+        close.addEventListener("click", () => {
+          searchBTN.classList.remove("show");
+          searchContainer.classList.remove("show");
+        });
+  
+        const burgerbtn = document.querySelector(".burger__menu");
+        const headerA = document.querySelector("nav");
+        burgerbtn.addEventListener("click", () => {
+          burgerbtn.classList.toggle("open");
+          headerA.classList.toggle("open");
+        });
+      </script>
+  
+      <script>
+        const toggleMenu = document.querySelector("#toggleMode");
+        const menu = document.querySelector("#menu");
+        const body = document.querySelector("body");
+  
+        const icon = document.querySelector(".far");
+        const logo = document.querySelector("#logo");
+  
+        toggleMenu.addEventListener("click", () => {
+          menu.classList.toggle("open");
+          body.classList.toggle("open");
+        });
+  
+        const btnTheme = document.querySelector(".theme");
+        const root = document.querySelector(":root");
+  
+        btnTheme.addEventListener("click", () => {
+          if (body.classList.contains("dark")) {
+            body.classList.remove("dark");
+            root.style.setProperty("--light", "#fff");
+            root.style.setProperty("--dark", "#1f1f1f");
+            root.style.setProperty("--secondary", "#060922");
+            root.style.setProperty("--darkasul", "#000531");
+            icon.classList.remove("fa-moon");
+            icon.classList.add("fa-sun");
+            logo.src = "./images/logo-light.png";
+          } else {
+            body.classList.add("dark");
+            root.style.setProperty("--light", "#1f1f1f");
+            root.style.setProperty("--dark", "#fff");
+            root.style.setProperty("--secondary", "#fff");
+            root.style.setProperty("--darkasul", "#fff");
+            icon.classList.remove("fa-sun");
+            icon.classList.add("fa-moon");
+            logo.src = "./images/logo-dark.png";
+          }
+        });
+      </script>
+  
+      <script>
+        let anchorTop = document.getElementById("topbtn");
+        let header = document.getElementById("header");
+  
+        window.onscroll = function () {
+          scrollFunction();
+        };
+  
+        function scrollFunction() {
+          if (
+            document.body.scrollTop > 20 ||
+            document.documentElement.scrollTop > 20
+          ) {
+            header.classList.add("sticky");
+            anchorTop.style.opacity = "100%";
+          } else {
+            header.classList.remove("sticky");
+            anchorTop.style.opacity = "0%";
+          }
+        }
+      </script>
+    </body>
+  </html>
+  
+  
