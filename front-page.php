@@ -286,12 +286,12 @@
         <!-- Title -->
         <div class="portfolio__title">
         <div class="portfolio__info">
-            <h4 class="block-header">PORTFOLIO</h4>
-            <h1>Awesome Portfolio</h1>
+            <h4 class="block-header"><?php echo get_field('portfolio_subtitle')?></h4>
+            <h1><?php echo get_field('portfolio_title')?></h1>
         </div>
 
         <div class="portfolio__btn">
-            <a href="#"> See More <i class="fa-solid fa-arrow-right"></i> </a>
+            <a href="#"> <?php echo get_field('portfolio_button')?> <i class="fa-solid fa-arrow-right"></i> </a>
         </div>
         </div>
 
@@ -375,44 +375,59 @@
         <!-- Title -->
         <div class="price__title">
         <div class="price__info">
-            <h4 class="block-header">PRICING PLANS</h4>
-            <h1>Affordable Pricing Plans</h1>
+            <h4 class="block-header"><?php echo get_field('pricing_subtitle')?></h4>
+            <h1><?php echo get_field('pricing_title')?></h1>
             <p>
-            Lorem Ipsum Dolor Sit Amet Consectetur Adipisicing Elit Omnis Id
-            Atque Dignissimos Repellat Quae Ullam.
+            <?php echo get_field('pricing_paragraph')?>
             </p>
         </div>
         <div class="price__btn">
             <a href="#">
-            See All Plans <i class="fa-solid fa-arrow-right"></i>
+            <?php echo get_field('pricing_button')?> <i class="fa-solid fa-arrow-right"></i>
             </a>
         </div>
         </div>
 
         <!-- Price Cards -->
         <div class="price__cardlist">
+
+        <?php 
+                $activity = new WP_Query(array(
+                    'post_type' => 'pricing'
+                ))
+            ?>
+            <?php if ($activity->have_posts()) : while($activity->have_posts()) : $activity->the_post(); ?>
         <!-- Card 1 -->
         <div class="price__cards">
             <div class="price__card--head">
             <div class="price__cardicon">
-                <i class="fa-solid fa-tv"></i>
+                <img src="<?php echo get_field('pricing_card_image')?>" alt="">
             </div>
-            <h4>Free Plan</h4>
+            <h4><?php echo get_field('pricing_card_title')?></h4>
             <div class="price__cost">
-                <h1><i class="fa-solid fa-dollar-sign"></i>00</h1>
+                <h1><i class="fa-solid fa-dollar-sign"></i><?php echo get_field('pricing_card_cost')?></h1>
             </div>
-            <h6>Per Project</h6>
+            <h6><?php echo get_field('pricing_card_subtitle')?></h6>
             </div>
+
             <ul>
-            <li>150 Lorem, Ipsum Dolor.</li>
-            <li>20 Lorem Ipsum Dolor Sit .</li>
-            <li>Lorem Ipsum Dolor Sit.</li>
-            <li>Free Lorem Ipsum Dolor .</li>
-            <li>Added Lorem Ipsum Dolor.</li>
+            <?php 
+            if(have_rows('pricing_card_list')) : ?>
+            <?php while( have_rows('pricing_card_list')): the_row(); ?>
+            <li><?php echo get_sub_field('pricing_card_info')?></li>
+            <?php endwhile;
+        else : 
+            echo "No more slider";
+        endif;
+        ?>
             </ul>
             <div class="price__cardbtn"><a href="#">Select Plan</a></div>
         </div>
-
+        <?php endwhile;
+            else :
+                echo "No more Activity";
+            endif;
+        ?>
         <!-- Card 2 -->
         <div class="price__cards">
             <div class="price__card--head">
