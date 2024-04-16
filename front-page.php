@@ -67,6 +67,7 @@
     <div class="services__wrapper">
         <!-- Service Title -->
         <div class="services__title">
+
             <div class="services__info">
                 <h4 class="block-header"><?php echo get_field('services_subtitle') ?></h4>
                 <h1><?php echo get_field('services_title') ?></h1>
@@ -81,17 +82,15 @@
             </div>
         </div>
 
-
-
-        <?php 
+        <!-- Services Cards -->
+        <div class="services__cardlist">  
+            <!-- Card 1 -->
+            <?php 
                 $activity = new WP_Query(array(
                     'post_type' => 'services'
                 ))
             ?>
             <?php if ($activity->have_posts()) : while($activity->have_posts()) : $activity->the_post(); ?>
-        <!-- Services Cards -->
-        <div class="services__cardlist">  
-            <!-- Card 1 -->
             <div class="services__cards">
                 <div class="services__cardicon">
                 <img src="./images/service1.png" alt="" />
@@ -102,13 +101,14 @@
                 </p>
                 <a href="#"><?php echo get_field('services_card_button')?><i class="fa-solid fa-arrow-right"></i> </a>
             </div>
-        </div>
-
-        <?php endwhile;
+            <?php endwhile;
             else :
                 echo "No more Activity";
             endif;
         ?>
+        </div>
+
+
 
     </div>
     </div>
