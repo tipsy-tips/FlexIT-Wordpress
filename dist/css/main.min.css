@@ -3164,4 +3164,11 @@ p {
   background: var(--secondary);
   color: var(--primary);
   border: 2px solid var(--primary);
-} /*# sourceMappingURL=main.min.css.map */
+} 
+
+.tags a {
+  text-decoration: none; 
+  color: #fff; 
+}
+
+/*# sourceMappingURL=main.min.css.map */

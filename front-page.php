@@ -616,28 +616,31 @@
               </a>
             </div>
           </div>
-
+          <?php $activity = new WP_Query(array(
+                'post_type' => 'post',       
+        )) ?>
           <div class="news__cardlist">
             <!-- Card 1 -->
+            <?php 
+                 if($activity->have_posts()) : while($activity->have_posts()) : $activity->the_post(); ?>
             <div class="news__cards">
               <div class="news__date">
-                <p>05 oct 2022</p>
+                <p><?php echo get_field('news_post_date')?></p>
               </div>
               <div class="news__img">
-                <img src="./images/latestnews1.jpg" alt="" />
+                <img src="<?php echo get_field('news_post_image')?> " alt="" />
               </div>
               <div class="news__cardsinfo">
                 <div class="news__pins">
                   <i class="fa-regular fa-bookmark"></i>
-                  <p>Hosting |</p>
+                  <p class="tags"> <?php echo get_field('news_post_tag')?> |</p>
                   <i class="fa-regular fa-user"></i>
-                  <p>Allan Moore</p>
+                  <p><?php echo get_field('news_post_author')?> </p>
                 </div>
 
-                <h2>How Litespeed Technology Works To Speed Up Your Site</h2>
+                <h2><?php the_title()?></h2>
                 <p>
-                  Lorem ipsum dolor sit, amet consectetur adipisicing elit.Iure
-                  nulla dolorem, voluptates molestiae
+                  <?php echo get_field('news_post_paragraph') ?>
                 </p>
                 <div class="news__cardbtn">
                   <a href="#">
@@ -646,64 +649,11 @@
                 </div>
               </div>
             </div>
-
-            <!-- Card 2 -->
-            <div class="news__cards">
-              <div class="news__date">
-                <p>15 sep 2022</p>
-              </div>
-              <div class="news__img">
-                <img src="./images/latestnews2.jpg" alt="" />
-              </div>
-              <div class="news__cardsinfo">
-                <div class="news__pins">
-                  <i class="fa-regular fa-bookmark"></i>
-                  <p>Hosting |</p>
-                  <i class="fa-regular fa-user"></i>
-                  <p>Allan Moore</p>
-                </div>
-
-                <h2>How Litespeed Technology Works To Speed Up Your Site</h2>
-                <p>
-                  Lorem ipsum dolor sit, amet consectetur adipisicing elit.Iure
-                  nulla dolorem, voluptates molestiae
-                </p>
-                <div class="news__cardbtn">
-                  <a href="#"
-                    >Read More <i class="fa-solid fa-arrow-right"></i>
-                  </a>
-                </div>
-              </div>
-            </div>
-
-            <!-- Card 3 -->
-            <div class="news__cards">
-              <div class="news__date">
-                <p>27 aug 2022</p>
-              </div>
-              <div class="news__img">
-                <img src="./images/latestnews3.jpg" alt="" />
-              </div>
-              <div class="news__cardsinfo">
-                <div class="news__pins">
-                  <i class="fa-regular fa-bookmark"></i>
-                  <p>Hosting |</p>
-                  <i class="fa-regular fa-user"></i>
-                  <p>Allan Moore</p>
-                </div>
-
-                <h2>How Litespeed Technology Works To Speed Up Your Site</h2>
-                <p>
-                  Lorem ipsum dolor sit, amet consectetur adipisicing elit.Iure
-                  nulla dolorem, voluptates molestiae
-                </p>
-                <div class="news__cardbtn">
-                  <a href="#">
-                    Read More <i class="fa-solid fa-arrow-right"></i>
-                  </a>
-                </div>
-              </div>
-            </div>
+            <?php endwhile;
+        else : 
+          echo "No Data";
+        endif;
+        ?>
           </div>
         </div>
       </div>
