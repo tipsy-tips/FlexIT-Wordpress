@@ -67,6 +67,7 @@
     <div class="services__wrapper">
         <!-- Service Title -->
         <div class="services__title">
+
             <div class="services__info">
                 <h4 class="block-header"><?php echo get_field('services_subtitle') ?></h4>
                 <h1><?php echo get_field('services_title') ?></h1>
@@ -83,7 +84,8 @@
 
         <!-- Services Cards -->
         <div class="services__cardlist">  
-        <?php 
+            <!-- Card 1 -->
+            <?php 
                 $activity = new WP_Query(array(
                     'post_type' => 'services'
                 ))
