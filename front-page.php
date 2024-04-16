@@ -67,36 +67,49 @@
     <div class="services__wrapper">
         <!-- Service Title -->
         <div class="services__title">
-        <div class="services__info">
-            <h4 class="block-header"><?php echo get_field('services_subtitle') ?></h4>
-            <h1><?php echo get_field('services_title') ?></h1>
-            <p>
-            <?php echo get_field('services_paragraph') ?>
-            </p>
-        </div>
-        <div class="services__btn">
-            <a href="#">
-            <?php echo get_field('services_button') ?> <i class="fa-solid fa-arrow-right"></i>
-            </a>
-        </div>
+            <div class="services__info">
+                <h4 class="block-header"><?php echo get_field('services_subtitle') ?></h4>
+                <h1><?php echo get_field('services_title') ?></h1>
+                <p>
+                <?php echo get_field('services_paragraph') ?>
+                </p>
+            </div>
+            <div class="services__btn">
+                <a href="#">
+                <?php echo get_field('services_button') ?> <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
         </div>
 
+
+
+        <?php 
+                $activity = new WP_Query(array(
+                    'post_type' => 'services'
+                ))
+            ?>
+            <?php if ($activity->have_posts()) : while($activity->have_posts()) : $activity->the_post(); ?>
         <!-- Services Cards -->
-        <div class="services__cardlist">
-        <!-- Card 1 -->
-        <div class="services__cards">
-            <div class="services__cardicon">
-            <img src="./images/service1.png" alt="" />
+        <div class="services__cardlist">  
+            <!-- Card 1 -->
+            <div class="services__cards">
+                <div class="services__cardicon">
+                <img src="./images/service1.png" alt="" />
+                </div>
+                <h3><?php the_title()?></h3>
+                <p>
+                <?php the_content()?>
+                </p>
+                <a href="#"><?php echo get_field('services_card_button')?><i class="fa-solid fa-arrow-right"></i> </a>
             </div>
-            <h3>Web Development</h3>
-            <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque
-            repellendus minima reiciendis nobis dolore obcaecati.
-            </p>
-            <a href="#">Read More <i class="fa-solid fa-arrow-right"></i> </a>
         </div>
-        
-        </div>
+
+        <?php endwhile;
+            else :
+                echo "No more Activity";
+            endif;
+        ?>
+
     </div>
     </div>
 </section>
