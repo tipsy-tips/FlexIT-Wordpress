@@ -68,6 +68,7 @@
         <!-- Service Title -->
         <div class="services__title">
 
+        <?php echo get_field('services_subtitle') ?><?php echo get_field('services_subtitle') ?><?php echo get_field('services_subtitle') ?><?php echo get_field('services_subtitle') ?>
             <div class="services__info">
                 <h4 class="block-header"><?php echo get_field('services_subtitle') ?></h4>
                 <h1><?php echo get_field('services_title') ?></h1>
@@ -107,9 +108,6 @@
             endif;
         ?>
         </div>
-
-
-
     </div>
     </div>
 </section>
@@ -552,48 +550,45 @@
     <div class="container">
     <div class="overlay"></div>
     <div class="test__wrapper">
+        <?php 
+            $activity1 = new WP_Query(array(
+                'post_type' => 'testimonials'
+            ))
+        ?>
+        
+        <?php if ($activity1->have_posts()) : while($activity1->have_posts()) : $activity1->the_post(); ?>
+        
         <div class="test__title">
-        <h4 class="block-header">TESTIMONIALS</h4>
-        <h1>Customers Testimonials</h1>
+        <h4 class="block-header"><?php echo get_field('testimonials_subtitle') ?></h4>
+        <h1><?php echo get_field('testimonials_title') ?></h1>
         </div>
         <!-- List -->
         <div class="test__contentlist">
         <!-- Testimonial 1 -->
 
+        <?php if(have_rows('testimonials_slider')) : 
+            while( have_rows('testimonials_slider')): the_row(); ?>
+            
         <div class="test__content">
-            <img src="https://placeholder.com/400x400" alt="" />
+            <img src="<?php echo get_sub_field('reviewer_image') ?>" alt="" />
             <p>
-            ipsum dolor sit amet consectetur adipisicing elit. Quod, id
-            sequi aut qui est ab, corporis quis maiores reiciendis explicabo
-            odio tenetur nulla sint vel.
+            <?php echo get_sub_field('reviewer_paragraph') ?>
             </p>
-            <h3>Yusuf Amin</h3>
-            <h6>Founder</h6>
+            <h3> <?php echo get_sub_field('reviewer_name') ?></h3>
+            <h6> <?php echo get_sub_field('reviewer_position') ?></h6>
         </div>
 
-        <!-- Testimonial 2 -->
-        <div class="test__content">
-            <img src="https://placeholder.com/400x400" alt="" />
-            <p>
-            ipsum dolor sit amet consectetur adipisicing elit. Quod, id
-            sequi aut qui est ab, corporis quis maiores reiciendis explicabo
-            odio tenetur nulla sint vel.
-            </p>
-            <h3>Yusuf Amin</h3>
-            <h6>Founder</h6>
-        </div>
-
-        <!-- Testimonial 3 -->
-        <div class="test__content">
-            <img src="https://placeholder.com/400x400.png" alt="" />
-            <p>
-            ipsum dolor sit amet consectetur adipisicing elit. Quod, id
-            sequi aut qui est ab, corporis quis maiores reiciendis explicabo
-            odio tenetur nulla sint vel.
-            </p>
-            <h3>Yusuf Amin</h3>
-            <h6>Founder</h6>
-        </div>
+        <?php endwhile;
+        else : 
+            echo "No more Info";
+        endif;
+        ?>
+        
+        <?php endwhile;
+            else :
+                echo "No more Activity";
+            endif;
+        ?>
         </div>
     </div>
     </div>
