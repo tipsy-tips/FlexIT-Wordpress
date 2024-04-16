@@ -1,5 +1,8 @@
 <?php
 
+	
+add_theme_support( 'post-thumbnails' );
+
 function flexit_assets(){
     // wp_enqueue_style -> load your css assets 
     wp_enqueue_style('flexit-style', get_template_directory_uri() . "/dist/css/main.min.css", microtime());
