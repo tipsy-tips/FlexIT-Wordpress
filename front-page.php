@@ -81,20 +81,18 @@
             </div>
         </div>
 
-
-
+        <!-- Services Cards -->
+        <div class="services__cardlist">  
         <?php 
                 $activity = new WP_Query(array(
                     'post_type' => 'services'
                 ))
             ?>
             <?php if ($activity->have_posts()) : while($activity->have_posts()) : $activity->the_post(); ?>
-        <!-- Services Cards -->
-        <div class="services__cardlist">  
             <!-- Card 1 -->
             <div class="services__cards">
                 <div class="services__cardicon">
-                <img src="./images/service1.png" alt="" />
+                <img src="<?php echo get_field('services_card_icon')?>" alt="" />
                 </div>
                 <h3><?php the_title()?></h3>
                 <p>
@@ -102,14 +100,12 @@
                 </p>
                 <a href="#"><?php echo get_field('services_card_button')?><i class="fa-solid fa-arrow-right"></i> </a>
             </div>
-        </div>
-
-        <?php endwhile;
+            <?php endwhile;
             else :
                 echo "No more Activity";
             endif;
         ?>
-
+        </div>
     </div>
     </div>
 </section>
@@ -320,89 +316,31 @@
 
         <!-- Cards -->
         <div class="portfolio__cardlist">
+
+        <?php 
+                $activity = new WP_Query(array(
+                    'post_type' => 'portfolio'
+                ))
+            ?>
+            <?php if ($activity->have_posts()) : while($activity->have_posts()) : $activity->the_post(); ?>
         <!-- Card 1 -->
         <div class="portfolio__cards mobile">
-            <img src="https://placeholder.com/400" alt="" />
+            <img src="<?php echo get_field('portfolio_images')?>" alt="" />
 
             <div class="portfolio__hover">
             <div class="portfolio__arrow">
                 <i class="fa-solid fa-arrow-right"></i>
             </div>
             <div class="portfolio__name">
-                <h4>Mobile Apps</h4>
+                <h4><?php the_title()?></h4>
             </div>
             </div>
         </div>
-
-        <!-- Card 2 -->
-        <div class="portfolio__cards cloud">
-            <img src="https://placeholder.com/400" alt="" />
-
-            <div class="portfolio__hover">
-            <div class="portfolio__arrow">
-                <i class="fa-solid fa-arrow-right"></i>
-            </div>
-            <div class="portfolio__name">
-                <h4>Cloud</h4>
-            </div>
-            </div>
-        </div>
-
-        <!-- Card 3 -->
-        <div class="portfolio__cards data">
-            <img src="https://placeholder.com/400" alt="" />
-
-            <div class="portfolio__hover">
-            <div class="portfolio__arrow">
-                <i class="fa-solid fa-arrow-right"></i>
-            </div>
-            <div class="portfolio__name">
-                <h4>Data Analysis</h4>
-            </div>
-            </div>
-        </div>
-
-        <!-- Card 4 -->
-        <div class="portfolio__cards mobile">
-            <img src="https://placeholder.com/400" alt="" />
-
-            <div class="portfolio__hover">
-            <div class="portfolio__arrow">
-                <i class="fa-solid fa-arrow-right"></i>
-            </div>
-            <div class="portfolio__name">
-                <h4>Hosting</h4>
-            </div>
-            </div>
-        </div>
-
-        <!-- Card 5 -->
-        <div class="portfolio__cards hosting">
-            <img src="https://placeholder.com/400" alt="" />
-
-            <div class="portfolio__hover">
-            <div class="portfolio__arrow">
-                <i class="fa-solid fa-arrow-right"></i>
-            </div>
-            <div class="portfolio__name">
-                <h4>SEO</h4>
-            </div>
-            </div>
-        </div>
-
-        <!-- Card 6 -->
-        <div class="portfolio__cards mobile">
-            <img src="https://placeholder.com/400" alt="" />
-
-            <div class="portfolio__hover">
-            <div class="portfolio__arrow">
-                <i class="fa-solid fa-arrow-right"></i>
-            </div>
-            <div class="portfolio__name">
-                <h4>Other Category</h4>
-            </div>
-            </div>
-        </div>
+        <?php endwhile;
+            else :
+                echo "No more Activity";
+            endif;
+        ?>
         </div>
     </div>
     </div>
